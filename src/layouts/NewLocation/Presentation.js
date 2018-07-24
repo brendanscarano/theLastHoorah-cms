@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { LocationForm, Search } from '../../components';
 import '../../styles/App.css';
-import FIELDS from '../../shared/formFields';
+import fields from './formFields';
 
 const Presentation = ({
   data,
@@ -34,6 +34,7 @@ const Presentation = ({
     {data && (
       <LocationForm
         location={data}
+        fields={fields}
         handleSubmit={() => save(data)}
         selectedFilters={[]}
         buttonText="Save to Firebase"

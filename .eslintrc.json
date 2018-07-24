@@ -1,0 +1,17 @@
+{
+    "extends": "airbnb",
+    "rules": {
+        "indent": [
+            "error",
+            "tab"
+        ],
+        "indent": [
+            "error",
+            2
+        ],
+        "react/jsx-filename-extension": false,
+        "jsx-a11y/anchor-is-valid": false,
+        "react/forbid-prop-types": false,
+        "react/jsx-one-expression-per-line": false
+    }
+}

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Field } from 'redux-form';
 import { Button, Filters, FlexRow } from '..';
-import FIELDS from '../../shared/formFields';
 
 const FormRow = styled(FlexRow)`
   align-items: flex-start;
@@ -14,12 +13,12 @@ const FieldWrapper = styled.div`
 `;
 
 const LocationForm = ({
-  location, handleSubmit, selectedFilters, buttonText,
+  location, fields, handleSubmit, selectedFilters, buttonText,
 }) => (
   <form onSubmit={handleSubmit}>
     <FormRow>
       <div>
-        {FIELDS.map(({ key, isEditable, Component }) => (
+        {fields.map(({ key, isEditable, Component }) => (
           <FieldWrapper key={key}>
             <label id={key} htmlFor={key}>
               {key}
@@ -51,6 +50,11 @@ const LocationForm = ({
 
 LocationForm.propTypes = {
   location: PropTypes.object.isRequired,
+  fields: PropTypes.arrayOf(PropTypes.shape({
+    key: PropTypes.string,
+    isEditable: PropTypes.bool,
+    Component: PropTypes.element,
+  })),
   handleSubmit: PropTypes.func.isRequired,
   selectedFilters: PropTypes.array,
   buttonText: PropTypes.string,

@@ -1,5 +1,6 @@
 import React from 'react';
 import { compose, withHandlers, withState } from 'recompact';
+import { reduxForm } from 'redux-form';
 import { Query } from 'react-apollo';
 import firebase from '../../firebase';
 import Presentation from './Presentation';
@@ -14,7 +15,7 @@ const enhance = compose(
   withState('placeId', 'setPlaceId', ''),
   withState('selectedPhoto', 'setSelectedPhoto', ''),
   withHandlers({
-    save: ({ placeId, selectedPhoto }) => (data) => {
+    save: ({ selectedPhoto }) => (data) => {
       const dataCopy = { ...data };
       dataCopy.imgRef = selectedPhoto;
       delete dataCopy.photos;
@@ -27,6 +28,10 @@ const enhance = compose(
         .doc(key)
         .set(dataCopy);
     },
+  }),
+  reduxForm({
+    form: 'newLocation',
+    enableReinitialize: true,
   }),
 );
 const App = ({

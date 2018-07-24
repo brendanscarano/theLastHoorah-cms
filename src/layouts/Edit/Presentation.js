@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { LocationForm } from '../../components';
 import Heading from './Heading';
 import Error from './Error';
-// import FIELDS from '../../shared/formFields';
+import editFormFields from './formFields';
 
 const Container = styled.div`
     padding: 1rem;
@@ -27,6 +27,7 @@ const Presentation = ({
     {location && (
       <LocationForm
         location={location}
+        fields={editFormFields}
         handleSubmit={handleSubmit}
         selectedFilters={selectedFilters}
       />

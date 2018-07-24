@@ -1,5 +1,5 @@
-import { InputField } from '../components';
-import TextAreaField from '../components/Form/TextAreaField';
+import { InputField } from '../../components';
+import TextAreaField from '../../components/Form/TextAreaField';
 
 export default [
   { key: 'id', isEditable: false, Component: InputField },
