@@ -1,0 +1,49 @@
+{
+  "name": "thelasthoorah-graphql",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": {
+    "/api": {
+      "target": "http://localhost:4000"
+    }
+  },
+  "dependencies": {
+    "@material-ui/core": "^1.0.0",
+    "antd": "^3.7.0",
+    "apollo-boost": "^0.1.6",
+    "apollo-client": "^2.3.1",
+    "apollo-client-preset": "^1.0.8",
+    "firebase": "^5.0.3",
+    "graphql": "^0.13.2",
+    "graphql-tag": "^2.9.2",
+    "history": "^4.7.2",
+    "material-ui": "^0.20.1",
+    "prop-types": "^15.6.2",
+    "react": "^16.3.2",
+    "react-apollo": "^2.1.4",
+    "react-dom": "^16.3.2",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.4",
+    "recompact": "^3.3.0",
+    "redux": "^4.0.0",
+    "redux-devtools-extension": "^2.13.5",
+    "redux-form": "^7.4.2",
+    "styled-components": "^3.2.6"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "lint": "eslint"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.10.0"
+  }
+}
