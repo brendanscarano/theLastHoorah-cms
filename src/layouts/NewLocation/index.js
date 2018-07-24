@@ -2,7 +2,7 @@ import React from 'react';
 import { compose, withHandlers, withState } from 'recompact';
 import { Query } from 'react-apollo';
 import firebase from '../../firebase';
-import Presentation from './presentation';
+import Presentation from './Presentation';
 import query from './query';
 import '../../styles/App.css';
 
