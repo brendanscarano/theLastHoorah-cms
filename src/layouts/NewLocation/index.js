@@ -13,8 +13,12 @@ db.settings(settings);
 
 const enhance = compose(
   withState('placeId', 'setPlaceId', ''),
+  withState('placeIdToSearch', 'setPlaceIdToSearch', ''),
   withState('selectedPhoto', 'setSelectedPhoto', ''),
   withHandlers({
+    setPlaceIdToSearch: ({ placeId, setPlaceIdToSearch }) => () => {
+      setPlaceIdToSearch(placeId);
+    },
     save: ({ selectedPhoto }) => (data) => {
       const dataCopy = { ...data };
       dataCopy.imgRef = selectedPhoto;
@@ -37,16 +41,19 @@ const enhance = compose(
 const App = ({
   placeId,
   setPlaceId,
+  placeIdToSearch,
+  setPlaceIdToSearch,
   save,
   selectedPhoto,
   setSelectedPhoto,
-}) => (
-  <Query query={query(placeId)}>
-    {props => console.log('props', props) || (
+}) => console.log('placeIdToSearch', placeIdToSearch) || (
+  <Query query={query(placeIdToSearch)}>
+    {({ data }) => (
       <Presentation
-        data={props.data && props.data.place ? props.data.place : null}
+        data={data && data.place ? data.place : null}
         placeId={placeId}
         setPlaceId={setPlaceId}
+        setPlaceIdToSearch={setPlaceIdToSearch}
         save={save}
         selectedPhoto={selectedPhoto}
         setSelectedPhoto={setSelectedPhoto}

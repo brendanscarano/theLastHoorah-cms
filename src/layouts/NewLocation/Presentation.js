@@ -8,6 +8,7 @@ const Presentation = ({
   data,
   placeId,
   setPlaceId,
+  setPlaceIdToSearch,
   save,
   selectedPhoto,
   setSelectedPhoto,
@@ -25,7 +26,7 @@ const Presentation = ({
     </header>
 
     <Link to="/locations">See Locations</Link>
-    <Search placeId={placeId} setPlaceId={setPlaceId} />
+    <Search placeId={placeId} setPlaceId={setPlaceId} setPlaceIdToSearch={setPlaceIdToSearch} />
 
     {data === null && (
       <div>Input a Place ID to see data!</div>

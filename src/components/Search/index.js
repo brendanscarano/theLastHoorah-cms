@@ -6,8 +6,12 @@ import React from 'react';
 // import styled from "styled-components";
 import { Button } from '@material-ui/core';
 
-const Search = ({ search, placeId, setPlaceId }) => (
-  <form onSubmit={search}>
+const Search = ({ placeId, setPlaceId, setPlaceIdToSearch }) => (
+  <form onSubmit={(e) => {
+    e.preventDefault();
+    setPlaceIdToSearch();
+  }}
+  >
     <label htmlFor="placeId">Place ID:</label>
     <input
       id="placeId"
@@ -16,7 +20,7 @@ const Search = ({ search, placeId, setPlaceId }) => (
       onChange={e => setPlaceId(e.target.value)}
     />
     <Button type="submit" variant="raised">
-            Search
+      Search
     </Button>
   </form>
 );
