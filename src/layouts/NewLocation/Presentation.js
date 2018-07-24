@@ -5,7 +5,7 @@ import '../../styles/App.css';
 import fields from './formFields';
 
 const Presentation = ({
-  data,
+  location,
   placeId,
   setPlaceId,
   setPlaceIdToSearch,
@@ -15,7 +15,7 @@ const Presentation = ({
 }) => (
   <div className="App">
     <header className="App-header">
-      <h1 className="App-title" style={{ color: '#fff' }}>Search Google for Places</h1>
+      <h1 className="App-title" style={{ color: '#fff' }}>The Last Hoorah CMS</h1>
       <a
         href="https://developers.google.com/places/place-id"
         target="_blank"
@@ -28,15 +28,15 @@ const Presentation = ({
     <Link to="/locations">See Locations</Link>
     <Search placeId={placeId} setPlaceId={setPlaceId} setPlaceIdToSearch={setPlaceIdToSearch} />
 
-    {data === null && (
-      <div>Input a Place ID to see data!</div>
+    {location === null && (
+      <div>Input a <b>Google Place ID</b> to see location</div>
     )}
 
-    {data && (
+    {location && (
       <LocationForm
-        location={data}
+        location={location}
         fields={fields}
-        handleSubmit={() => save(data)}
+        handleSubmit={() => save(location)}
         selectedFilters={[]}
         buttonText="Save to Firebase"
       />

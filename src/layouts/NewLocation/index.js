@@ -1,7 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { compose, withHandlers, withState } from 'recompact';
 import { reduxForm } from 'redux-form';
 import { Query } from 'react-apollo';
+import { loadData } from '../../redux/location';
 import firebase from '../../firebase';
 import Presentation from './Presentation';
 import query from './query';
@@ -12,6 +14,11 @@ const settings = { timestampsInSnapshots: true };
 db.settings(settings);
 
 const enhance = compose(
+  connect(
+    state => ({
+      initialValues: state.location.data,
+    }), { loadData },
+  ),
   withState('placeId', 'setPlaceId', ''),
   withState('placeIdToSearch', 'setPlaceIdToSearch', ''),
   withState('selectedPhoto', 'setSelectedPhoto', ''),
@@ -50,7 +57,7 @@ const App = ({
   <Query query={query(placeIdToSearch)}>
     {({ data }) => (
       <Presentation
-        data={data && data.place ? data.place : null}
+        location={data && data.place ? data.place : null}
         placeId={placeId}
         setPlaceId={setPlaceId}
         setPlaceIdToSearch={setPlaceIdToSearch}

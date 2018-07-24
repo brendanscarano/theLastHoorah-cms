@@ -14,7 +14,7 @@ const FieldWrapper = styled.div`
 
 const LocationForm = ({
   location, fields, handleSubmit, selectedFilters, buttonText,
-}) => (
+}) => console.log('location', location) || (
   <form onSubmit={handleSubmit}>
     <FormRow>
       <div>

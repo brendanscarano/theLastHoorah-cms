@@ -3,8 +3,13 @@
  */
 import React from 'react';
 // import PropTypes from "prop-types";
-// import styled from "styled-components";
-import { Button } from '@material-ui/core';
+import styled from 'styled-components';
+import { Input, Button } from 'antd';
+
+const StyledInput = styled(Input)`
+  width: 300px;
+  margin: 1rem 1rem 0 1rem;
+`;
 
 const Search = ({ placeId, setPlaceId, setPlaceIdToSearch }) => (
   <form onSubmit={(e) => {
@@ -13,13 +18,13 @@ const Search = ({ placeId, setPlaceId, setPlaceIdToSearch }) => (
   }}
   >
     <label htmlFor="placeId">Place ID:</label>
-    <input
+    <StyledInput
       id="placeId"
       type="text"
       value={placeId}
       onChange={e => setPlaceId(e.target.value)}
     />
-    <Button type="submit" variant="raised">
+    <Button type="primary" htmlType="submit" variant="raised">
       Search
     </Button>
   </form>

@@ -27,7 +27,6 @@ const enhance = compose(
         return;
       }
 
-      console.log('doc', doc);
       this.props.setLocation(doc);
       this.props.setIsLoading(false);
       this.props.loadData(doc);
@@ -36,8 +35,7 @@ const enhance = compose(
   withHandlers({
     handleSubmit: ({ formValues, match }) => async (e) => {
       e.preventDefault();
-      const res = await updateData(match.params.id, formValues);
-      console.log('res', res);
+      await updateData(match.params.id, formValues);
     },
   }),
   reduxForm({
@@ -46,7 +44,7 @@ const enhance = compose(
   }),
 );
 const EditPage = ({
-  history, match, isLoading, location, handleSubmit, formValues,
+  match, isLoading, location, handleSubmit, formValues,
 }) => (
   <Presentation
     location={location}
