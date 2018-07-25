@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { LocationForm, Search } from '../../components';
+import { LocationForm, Search, Spinner } from '../../components';
 import '../../styles/App.css';
 import fields from './formFields';
 
 const Presentation = ({
+  loading,
   location,
   placeId,
   setPlaceId,
@@ -32,11 +33,18 @@ const Presentation = ({
       <div>Input a <b>Google Place ID</b> to see location</div>
     )}
 
-    {location && (
+    {loading && (
+      <Spinner />
+    )}
+
+    {!loading && location && (
       <LocationForm
         location={location}
         fields={fields}
-        handleSubmit={() => save(location)}
+        handleSubmit={(e) => {
+          e.preventDefault();
+          save(location);
+        }}
         selectedFilters={[]}
         buttonText="Save to Firebase"
       />

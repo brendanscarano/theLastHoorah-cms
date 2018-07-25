@@ -2,14 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Field } from 'redux-form';
-import { Button, Filters, FlexRow } from '..';
+import { Filters, FlexRow } from '..';
+import { Button } from 'antd';
 
 const FormRow = styled(FlexRow)`
   align-items: flex-start;
 `;
 
-const FieldWrapper = styled.div`
+const FieldWrapper = styled(FlexRow)`
   margin-bottom: 1.5rem;
+  > label {
+    margin-right: .5rem;
+    width: 3.75rem;
+    text-align: left;
+  }
 `;
 
 const LocationForm = ({
@@ -31,6 +37,7 @@ const LocationForm = ({
                 label={key}
                 component={field => <Component field={field} />}
                 disabled={!isEditable}
+                location={location}
               />
             </div>
           </FieldWrapper>
@@ -43,7 +50,7 @@ const LocationForm = ({
 
     </FormRow>
     <div>
-      <Button type="submit">{buttonText}</Button>
+      <Button type="primary" htmlType="submit">{buttonText}</Button>
     </div>
   </form>
 );

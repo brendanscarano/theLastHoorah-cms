@@ -53,19 +53,27 @@ const App = ({
   save,
   selectedPhoto,
   setSelectedPhoto,
-}) => console.log('placeIdToSearch', placeIdToSearch) || (
+  loadData,
+}) => (
   <Query query={query(placeIdToSearch)}>
-    {({ data }) => (
-      <Presentation
-        location={data && data.place ? data.place : null}
-        placeId={placeId}
-        setPlaceId={setPlaceId}
-        setPlaceIdToSearch={setPlaceIdToSearch}
-        save={save}
-        selectedPhoto={selectedPhoto}
-        setSelectedPhoto={setSelectedPhoto}
-      />
-    )}
+    {({ data, loading }) => {
+      if (data && data.place) {
+        loadData(data.place);
+      }
+
+      return (
+        <Presentation
+          loading={loading}
+          location={data && data.place ? data.place : null}
+          placeId={placeId}
+          setPlaceId={setPlaceId}
+          setPlaceIdToSearch={setPlaceIdToSearch}
+          save={save}
+          selectedPhoto={selectedPhoto}
+          setSelectedPhoto={setSelectedPhoto}
+        />
+      );
+    }}
   </Query>
 );
 
