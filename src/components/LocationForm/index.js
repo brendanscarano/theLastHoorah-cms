@@ -5,10 +5,6 @@ import { Field } from 'redux-form';
 import { Filters, FlexRow } from '..';
 import { Button } from 'antd';
 
-const FormRow = styled(FlexRow)`
-  align-items: flex-start;
-`;
-
 const FieldWrapper = styled(FlexRow)`
   margin-bottom: 1.5rem;
   > label {
@@ -19,8 +15,8 @@ const FieldWrapper = styled(FlexRow)`
 `;
 
 const LocationForm = ({
-  location, fields, handleSubmit, selectedFilters, buttonText,
-}) => console.log('location', location) || (
+  location, fields, handleSubmit, buttonText, selectedFilters,
+}) => (
   <form onSubmit={handleSubmit}>
     <div>
       {fields.map(({ key, isEditable, Component }) => (
@@ -34,7 +30,7 @@ const LocationForm = ({
               type="text"
               value={location[key]}
               label={key}
-              component={field => <Component field={field} />}
+              component={Component}
               disabled={!isEditable}
               location={location}
             />
@@ -56,7 +52,7 @@ LocationForm.propTypes = {
     key: PropTypes.string,
     isEditable: PropTypes.bool,
     Component: PropTypes.element,
-  })),
+  })).isRequired,
   handleSubmit: PropTypes.func.isRequired,
   selectedFilters: PropTypes.array,
   buttonText: PropTypes.string,

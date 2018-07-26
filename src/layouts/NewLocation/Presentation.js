@@ -1,8 +1,13 @@
 import React from 'react';
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { LocationForm, Search, Spinner } from '../../components';
 import '../../styles/App.css';
 import fields from './formFields';
+
+const Wrapper = styled.div`
+  padding: 2rem;
+`;
 
 const Presentation = ({
   loading,
@@ -11,8 +16,7 @@ const Presentation = ({
   setPlaceId,
   setPlaceIdToSearch,
   save,
-  selectedPhoto,
-  setSelectedPhoto,
+  selectedFilters,
 }) => (
   <div className="App">
     <header className="App-header">
@@ -38,16 +42,18 @@ const Presentation = ({
     )}
 
     {!loading && location && (
-      <LocationForm
-        location={location}
-        fields={fields}
-        handleSubmit={(e) => {
-          e.preventDefault();
-          save(location);
-        }}
-        selectedFilters={[]}
-        buttonText="Save to Firebase"
-      />
+      <Wrapper>
+        <LocationForm
+          location={location}
+          fields={fields}
+          handleSubmit={(e) => {
+            e.preventDefault();
+            save();
+          }}
+          selectedFilters={selectedFilters}
+          buttonText="Save to Firebase"
+        />
+      </Wrapper>
     )}
   </div>
 );

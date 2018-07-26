@@ -1,8 +1,4 @@
-/**
-* Description here...
-*/
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -26,7 +22,7 @@ const ImgWrapper = styled.div`
     }
 `;
 
-const ImagePickerField = ({ field }) => (
+const ImagePickerField = field => (
   <Wrapper>
     {field.location.photos.map((imgRef, i) => (
       <ImgWrapper
@@ -45,16 +41,5 @@ const ImagePickerField = ({ field }) => (
     ))}
   </Wrapper>
 );
-
-ImagePickerField.propTypes = {
-  field: PropTypes.shape({
-    disabled: PropTypes.bool,
-    input: PropTypes.object,
-    label: PropTypes.string,
-    location: PropTypes.object,
-    meta: PropTypes.object,
-    type: PropTypes.string,
-  }).isRequired,
-};
 
 export default ImagePickerField;

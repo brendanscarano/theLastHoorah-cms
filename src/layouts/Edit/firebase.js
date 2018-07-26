@@ -14,7 +14,6 @@ export const fetchData = async id => to(firebase
   .get());
 
 export const updateData = (id, values) => {
-  console.log('updating the data', values);
   const {
     name, description, formattedAddress, imgRef, latitude, longitude, phoneNumber, website, filters,
   } = values;

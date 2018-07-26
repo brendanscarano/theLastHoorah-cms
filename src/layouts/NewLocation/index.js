@@ -17,18 +17,17 @@ const enhance = compose(
   connect(
     state => ({
       initialValues: state.location.data,
+      formValues: state.form.newLocation && state.form.newLocation.values,
     }), { loadData },
   ),
   withState('placeId', 'setPlaceId', ''),
   withState('placeIdToSearch', 'setPlaceIdToSearch', ''),
-  withState('selectedPhoto', 'setSelectedPhoto', ''),
   withHandlers({
     setPlaceIdToSearch: ({ placeId, setPlaceIdToSearch }) => () => {
       setPlaceIdToSearch(placeId);
     },
-    save: ({ selectedPhoto }) => (data) => {
-      const dataCopy = { ...data };
-      dataCopy.imgRef = selectedPhoto;
+    save: ({ formValues }) => () => {
+      const dataCopy = { ...formValues };
       delete dataCopy.photos;
       const key = dataCopy.name.toLowerCase().replace(/ /g, '');
 
@@ -51,9 +50,8 @@ const App = ({
   placeIdToSearch,
   setPlaceIdToSearch,
   save,
-  selectedPhoto,
-  setSelectedPhoto,
   loadData,
+  formValues,
 }) => (
   <Query query={query(placeIdToSearch)}>
     {({ data, loading }) => {
@@ -69,8 +67,7 @@ const App = ({
           setPlaceId={setPlaceId}
           setPlaceIdToSearch={setPlaceIdToSearch}
           save={save}
-          selectedPhoto={selectedPhoto}
-          setSelectedPhoto={setSelectedPhoto}
+          selectedFilters={(formValues && formValues.filters) || []}
         />
       );
     }}

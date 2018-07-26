@@ -3,7 +3,7 @@ import { Input } from 'antd';
 
 const { TextArea } = Input;
 
-const TextAreaField = ({ field }) => console.log('field', field) || (
+const TextAreaField = field => (
   <TextArea
     {...field.input}
     type="text"
@@ -12,5 +12,4 @@ const TextAreaField = ({ field }) => console.log('field', field) || (
   />
 );
 
-console.log('TextAreaField', TextAreaField);
 export default TextAreaField;

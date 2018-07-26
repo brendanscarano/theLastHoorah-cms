@@ -6,8 +6,6 @@ import { compose, withState, lifecycle } from 'recompact';
 import { Card, List } from 'antd';
 import firebase from '../firebase';
 
-console.log('firebase', firebase);
-
 const Container = styled.div`
     padding: 1rem;
 `;
