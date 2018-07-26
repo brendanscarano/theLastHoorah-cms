@@ -7,7 +7,6 @@ export default [
   { key: 'name', isEditable: true, Component: InputField },
   { key: 'description', isEditable: true, Component: TextAreaField },
   { key: 'formattedAddress', isEditable: true, Component: InputField },
-  { key: 'hours', isEditable: false, Component: InputField },
   { key: 'imgRef', isEditable: true, Component: ImagePickerField },
   { key: 'latitude', isEditable: true, Component: InputField },
   { key: 'longitude', isEditable: true, Component: InputField },
