@@ -13,7 +13,7 @@ const FieldWrapper = styled(FlexRow)`
   margin-bottom: 1.5rem;
   > label {
     margin-right: .5rem;
-    width: 3.75rem;
+    width: 10.75rem;
     text-align: left;
   }
 `;
@@ -22,33 +22,28 @@ const LocationForm = ({
   location, fields, handleSubmit, selectedFilters, buttonText,
 }) => console.log('location', location) || (
   <form onSubmit={handleSubmit}>
-    <FormRow>
-      <div>
-        {fields.map(({ key, isEditable, Component }) => (
-          <FieldWrapper key={key}>
-            <label id={key} htmlFor={key}>
-              {key}
-            </label>
-            <div>
-              <Field
-                name={key}
-                type="text"
-                value={location[key]}
-                label={key}
-                component={field => <Component field={field} />}
-                disabled={!isEditable}
-                location={location}
-              />
-            </div>
-          </FieldWrapper>
-        ))}
-      </div>
+    <div>
+      {fields.map(({ key, isEditable, Component }) => (
+        <FieldWrapper key={key}>
+          <label id={key} htmlFor={key}>
+            {key}
+          </label>
+          <div>
+            <Field
+              name={key}
+              type="text"
+              value={location[key]}
+              label={key}
+              component={field => <Component field={field} />}
+              disabled={!isEditable}
+              location={location}
+            />
+          </div>
+        </FieldWrapper>
+      ))}
+    </div>
 
-      <div>
-        <Filters selectedFilters={selectedFilters} />
-      </div>
-
-    </FormRow>
+    <Filters selectedFilters={selectedFilters} />
     <div>
       <Button type="primary" htmlType="submit">{buttonText}</Button>
     </div>
