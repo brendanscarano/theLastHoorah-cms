@@ -12,8 +12,10 @@ import Locations from './layouts/Locations';
 import Edit from './layouts/Edit';
 import store from './redux/store';
 
+const port = process.env.PORT || 3000;
+
 const client = new ApolloClient({
-  uri: 'http://localhost:3000/api/graphql',
+  uri: `http://localhost:${port}/api/graphql`,
 });
 
 ReactDOM.render(
