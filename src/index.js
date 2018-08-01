@@ -12,10 +12,11 @@ import Locations from './layouts/Locations';
 import Edit from './layouts/Edit';
 import store from './redux/store';
 
-const port = process.env.PORT || 3000;
+console.log('Port running on: ', process.env.PORT);
 
 const client = new ApolloClient({
-  uri: `http://localhost:${port}/api/graphql`,
+  // uri: process.env.port ? 'https://thelasthoorah-graphql.herokuapp.com/graphiql' : 'http://localhost:3000/api/graphql',
+  uri: 'https://thelasthoorah-graphql.herokuapp.com/graphiql',
 });
 
 ReactDOM.render(
