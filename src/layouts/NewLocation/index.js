@@ -53,7 +53,7 @@ const App = ({
   loadData,
   formValues,
 }) => (
-  <Query query={query(placeIdToSearch)}>
+  <Query query={query} variables={{ id: placeIdToSearch }}>
     {({ data, loading }) => {
       console.log('data', data);
       if (data && data.place) {

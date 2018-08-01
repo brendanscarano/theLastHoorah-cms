@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
 
-export default placeId => gql`
-  query PlaceQuery {
-    place(id: "${placeId}") {
+export default gql`
+  query PlaceQuery($id: id) {
+    place(id: $id) {
       id
       name
       formattedAddress
