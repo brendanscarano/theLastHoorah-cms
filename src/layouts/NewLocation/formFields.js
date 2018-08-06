@@ -1,8 +1,21 @@
+import React from 'react';
 import { InputField } from '../../components';
-import TextAreaField from '../../components/Form/TextAreaField';
 import ImagePickerField from '../../components/Form/ImagePickerField';
+import SelectField from '../../components/Form/SelectField';
+import TextAreaField from '../../components/Form/TextAreaField';
+
+const cities = ['las-vegas',
+  'new-york',
+  'miami',
+  'austin',
+  'nashville',
+  'montreal',
+  'san-diego',
+  'phoenix',
+];
 
 export default [
+  { key: 'city', isEditable: true, Component: props => <SelectField {...props} options={cities} /> },
   { key: 'id', isEditable: false, Component: InputField },
   { key: 'name', isEditable: true, Component: InputField },
   { key: 'description', isEditable: true, Component: TextAreaField },

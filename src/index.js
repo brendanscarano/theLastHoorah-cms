@@ -15,7 +15,8 @@ import store from './redux/store';
 console.log('Port running on: ', process.env.PORT);
 
 const client = new ApolloClient({
-  uri: 'https://thelasthoorah-graphql.herokuapp.com/graphql',
+  // uri: 'https://thelasthoorah-graphql.herokuapp.com/graphql',
+  uri: 'http://localhost:4000/graphql',
 });
 
 ReactDOM.render(
