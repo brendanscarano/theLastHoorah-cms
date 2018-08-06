@@ -11,23 +11,26 @@ import NewLocation from './layouts/NewLocation';
 import Locations from './layouts/Locations';
 import Edit from './layouts/Edit';
 import store from './redux/store';
+import WithNavBarLayout from './layouts/WithNavBar';
 
 console.log('Port running on: ', process.env.PORT);
 
 const client = new ApolloClient({
-  // uri: 'https://thelasthoorah-graphql.herokuapp.com/graphql',
-  uri: 'http://localhost:4000/graphql',
+  uri: 'https://thelasthoorah-graphql.herokuapp.com/graphql',
+  // uri: 'http://localhost:4000/graphql',
 });
 
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <ApolloProvider client={client}>
-        <Switch>
-          <Route path="/locations" component={Locations} />
-          <Route path="/edit/:id" component={Edit} />
-          <Route path="/" component={NewLocation} />
-        </Switch>
+        <WithNavBarLayout>
+          <Switch>
+            <Route path="/locations" component={Locations} />
+            <Route path="/edit/:id" component={Edit} />
+            <Route path="/" component={NewLocation} />
+          </Switch>
+        </WithNavBarLayout>
       </ApolloProvider>
     </BrowserRouter>
   </Provider>,

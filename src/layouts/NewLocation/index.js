@@ -30,9 +30,10 @@ const enhance = compose(
       const dataCopy = { ...formValues };
       delete dataCopy.photos;
       const key = dataCopy.name.toLowerCase().replace(/ /g, '');
+      console.log('dataCopy', dataCopy);
 
       db
-        .collection('nyc')
+        .collection(formValues.city)
         .doc('locations')
         .collection('data')
         .doc(key)

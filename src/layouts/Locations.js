@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { compose, withState, lifecycle } from 'recompact';
-import { Card, List } from 'antd';
+import { Card } from 'antd';
 import firebase from '../firebase';
 
 const Container = styled.div`

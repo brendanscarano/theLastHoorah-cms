@@ -1,9 +1,9 @@
 /**
  * Description here...
  */
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React from 'react';
+// import PropTypes from "prop-types";
+import styled from 'styled-components';
 
 const Wrapper = styled.div`
   margin: 1rem 2rem;
@@ -26,7 +26,7 @@ const Key = styled.p`
 const Image = styled.img`
   max-width: 400px;
   max-height: 400px;
-  ${({ isSelected }) => isSelected && `border: 4px solid blue;`};
+  ${({ isSelected }) => isSelected && 'border: 4px solid blue;'};
   cursor: pointer;
 `;
 
@@ -35,8 +35,8 @@ const Results = ({ data, selectedPhoto, setSelectedPhoto }) => (
     {Object.keys(data).map(key => (
       <FlexRow key={key}>
         <Key>{key}:</Key>
-        {key !== "photos" && <p>{data[key]}</p>}
-        {key === "photos" && (
+        {key !== 'photos' && <p>{data[key]}</p>}
+        {key === 'photos' && (
           <div>
             {data[key].map(photoRef => (
               <Image

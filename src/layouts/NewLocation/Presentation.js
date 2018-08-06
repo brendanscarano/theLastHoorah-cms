@@ -1,12 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { LocationForm, Search, Spinner } from '../../components';
 import '../../styles/App.css';
 import fields from './formFields';
 
 const Wrapper = styled.div`
   padding: 2rem;
+`;
+
+const Placeholder = styled.div`
+  margin-top: 7rem;
 `;
 
 const Presentation = ({
@@ -19,22 +22,18 @@ const Presentation = ({
   selectedFilters,
 }) => (
   <div className="App">
-    <header className="App-header">
-      <h1 className="App-title" style={{ color: '#fff' }}>The Last Hoorah CMS</h1>
-      <a
-        href="https://developers.google.com/places/place-id"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Google Place ID Search
-      </a>
-    </header>
-
-    <Link to="/locations">See Locations</Link>
+    <a
+      href="https://developers.google.com/places/place-id"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+        Click here to get a Google Place ID
+    </a>
     <Search placeId={placeId} setPlaceId={setPlaceId} setPlaceIdToSearch={setPlaceIdToSearch} />
+    <i>Example Google Place ID:</i> <b>ChIJldFHseBfwokRO3aZ8NSVW_U</b>
 
     {location === null && (
-      <div>Input a <b>Google Place ID</b> to see location</div>
+      <Placeholder>Input a <b>Google Place ID</b> to see location</Placeholder>
     )}
 
     {loading && (

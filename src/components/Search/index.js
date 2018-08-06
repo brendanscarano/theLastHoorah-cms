@@ -17,7 +17,7 @@ const Search = ({ placeId, setPlaceId, setPlaceIdToSearch }) => (
     setPlaceIdToSearch();
   }}
   >
-    <label htmlFor="placeId">Place ID:</label>
+    <label htmlFor="placeId">Google Place ID:</label>
     <StyledInput
       id="placeId"
       type="text"

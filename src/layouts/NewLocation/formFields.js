@@ -4,14 +4,15 @@ import ImagePickerField from '../../components/Form/ImagePickerField';
 import SelectField from '../../components/Form/SelectField';
 import TextAreaField from '../../components/Form/TextAreaField';
 
-const cities = ['las-vegas',
-  'new-york',
-  'miami',
-  'austin',
-  'nashville',
-  'montreal',
-  'san-diego',
-  'phoenix',
+const cities = [
+  { key: 'las-vegas', displayName: 'Las Vegas' },
+  { key: 'nyc', displayName: 'New York City' },
+  { key: 'miami', displayName: 'Miami' },
+  { key: 'austin', displayName: 'Austin' },
+  { key: 'nashville', displayName: 'Nashville' },
+  { key: 'montreal', displayName: 'Montreal' },
+  { key: 'san-diego', displayName: 'San Diego' },
+  { key: 'phoenix', displayName: 'Phoneix' },
 ];
 
 export default [

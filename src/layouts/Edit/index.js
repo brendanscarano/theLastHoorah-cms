@@ -51,7 +51,7 @@ const EditPage = ({
     isLoading={isLoading}
     locationId={match.params.id}
     handleSubmit={handleSubmit}
-    selectedFilters={formValues && formValues.filters || []}
+    selectedFilters={(formValues && formValues.filters) || []}
     showModal
   />
 );
