@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 
 export default gql`
-  query PlaceQuery($id: id) {
+  query PlaceQuery($id: String) {
     place(id: $id) {
       id
       name
