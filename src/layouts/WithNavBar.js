@@ -36,7 +36,7 @@ const WithNavBarLayout = ({ children }) => (
         mode="horizontal"
         style={{ lineHeight: '64px' }}
       >
-        <Menu.Item key="1"><Link to="/locations">Cities</Link></Menu.Item>
+        <Menu.Item key="1"><Link to="/cities">Edit Location</Link></Menu.Item>
       </Menu>
     </FlexHeader>
     <Content style={{ padding: '25px' }}>

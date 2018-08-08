@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import registerServiceWorker from './registerServiceWorker';
 import NewLocation from './layouts/NewLocation';
 import Locations from './layouts/Locations';
+import Cities from './layouts/Cities';
 import Edit from './layouts/Edit';
 import store from './redux/store';
 import WithNavBarLayout from './layouts/WithNavBar';
@@ -26,7 +27,8 @@ ReactDOM.render(
       <ApolloProvider client={client}>
         <WithNavBarLayout>
           <Switch>
-            <Route path="/locations" component={Locations} />
+            <Route path="/cities" component={Cities} />
+            <Route path="/locations/:id" component={Locations} />
             <Route path="/edit/:id" component={Edit} />
             <Route path="/" component={NewLocation} />
           </Switch>

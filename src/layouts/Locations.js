@@ -6,10 +6,6 @@ import { compose, withState, lifecycle } from 'recompact';
 import { Card } from 'antd';
 import firebase from '../firebase';
 
-const Container = styled.div`
-    padding: 1rem;
-`;
-
 const LinksWrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -34,7 +30,7 @@ const enhance = compose(
       const querySnapshot = await
       firebase
         .firestore()
-        .collection('nyc')
+        .collection(this.props.match.params.id)
         .doc('locations')
         .collection('data')
         .get()
@@ -49,13 +45,8 @@ const enhance = compose(
   }),
 );
 const LocationsPage = ({ locations }) => (
-  <Container>
-    <Link to="/">
-Home
-    </Link>
-    <h1>
-Select a Location to Edit
-    </h1>
+  <div>
+    <h2>Select a Location to Edit</h2>
 
     <LinksWrapper>
       {locations.map(location => (
@@ -66,7 +57,7 @@ Select a Location to Edit
         </StyledLink>
       ))}
     </LinksWrapper>
-  </Container>
+  </div>
 );
 
 LocationsPage.propTypes = {
