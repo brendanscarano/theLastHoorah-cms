@@ -15,7 +15,7 @@ export const fetchData = async id => to(firebase
 
 export const updateData = (id, values) => {
   const {
-    name, description, formattedAddress, imgRef, latitude, longitude, phoneNumber, website, filters,
+    name, description, formattedAddress, imgRef, latitude, longitude, phoneNumber, website, filters, reviews,
   } = values;
   return firebase
     .firestore()
@@ -33,6 +33,7 @@ export const updateData = (id, values) => {
       phoneNumber,
       website,
       filters,
+      reviews,
     })
     .then(() => ({ msg: 'Success' }))
     .catch(err => err);

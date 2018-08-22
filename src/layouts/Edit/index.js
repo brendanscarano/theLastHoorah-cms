@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {
   compose, withState, lifecycle, withHandlers,
 } from 'recompact';
-import { reduxForm } from 'redux-form';
+import { reduxForm, change } from 'redux-form';
 import { connect } from 'react-redux';
 import { loadData } from '../../redux/location';
 import Presentation from './Presentation';
@@ -14,7 +14,7 @@ const enhance = compose(
     state => ({
       initialValues: state.location.data,
       formValues: state.form.editLocation && state.form.editLocation.values,
-    }), { loadData },
+    }), { loadData, change },
   ),
   withState('isLoading', 'setIsLoading', true),
   withState('location', 'setLocation', null),
@@ -34,6 +34,7 @@ const enhance = compose(
   }),
   withHandlers({
     handleSubmit: ({ formValues, match }) => async (e) => {
+      console.log('submitting edit: formValues', formValues);
       e.preventDefault();
       await updateData(match.params.id, formValues);
     },
@@ -44,7 +45,7 @@ const enhance = compose(
   }),
 );
 const EditPage = ({
-  match, isLoading, location, handleSubmit, formValues,
+  match, isLoading, location, handleSubmit, change, formValues,
 }) => (
   <Presentation
     location={location}
@@ -52,6 +53,7 @@ const EditPage = ({
     locationId={match.params.id}
     handleSubmit={handleSubmit}
     selectedFilters={(formValues && formValues.filters) || []}
+    change={change}
     showModal
   />
 );
@@ -60,6 +62,8 @@ EditPage.propTypes = {
   match: PropTypes.object.isRequired,
   isLoading: PropTypes.bool,
   location: PropTypes.object,
+  /** Redux Form action */
+  change: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
 };
 
