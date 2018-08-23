@@ -6,6 +6,7 @@ export default [
   { key: 'name', isEditable: true, Component: InputField },
   { key: 'description', isEditable: true, Component: TextAreaField },
   { key: 'rating', isEditable: false, Component: InputField },
+  { key: 'reviews.aggregateRating', isEditable: true, Component: InputField },
   { key: 'reviews.googleRating', isEditable: true, Component: InputField },
   { key: 'reviews.yelpRating', isEditable: true, Component: InputField },
   { key: 'reviews.yelpUrl', isEditable: true, Component: InputField },

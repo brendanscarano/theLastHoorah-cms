@@ -5,6 +5,7 @@ export default gql`
     place(id: $id) {
       id
         reviews {
+          aggregateRating
           googleRating
           yelpRating
           yelpNumberOfReviews
