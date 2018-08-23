@@ -95,6 +95,7 @@ const App = ({
 }) => (
   <Query query={query} variables={{ id: placeIdToSearch }}>
     {({ data, loading }) => {
+      console.log('data', data);
       if (data && data.place) {
         loadData(data.place);
       }

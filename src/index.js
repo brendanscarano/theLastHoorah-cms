@@ -29,7 +29,7 @@ ReactDOM.render(
           <Switch>
             <Route path="/cities" component={Cities} />
             <Route path="/locations/:id" component={Locations} />
-            <Route path="/edit/:id" component={Edit} />
+            <Route path="/edit/:cityId/:id" component={Edit} />
             <Route path="/" component={NewLocation} />
           </Switch>
         </WithNavBarLayout>

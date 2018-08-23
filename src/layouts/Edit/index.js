@@ -20,7 +20,8 @@ const enhance = compose(
   withState('location', 'setLocation', null),
   lifecycle({
     async componentDidMount() {
-      const [err, doc] = await fetchData(this.props.match.params.id);
+      const { cityId, id } = this.props.match.params;
+      const [err, doc] = await fetchData(cityId, id);
 
       if (!doc) {
         this.props.setIsLoading(false);
@@ -34,9 +35,9 @@ const enhance = compose(
   }),
   withHandlers({
     handleSubmit: ({ formValues, match }) => async (e) => {
-      console.log('submitting edit: formValues', formValues);
+      const { cityId, id } = match.params;
       e.preventDefault();
-      await updateData(match.params.id, formValues);
+      await updateData(cityId, id, formValues);
     },
   }),
   reduxForm({

@@ -49,8 +49,8 @@ const LocationsPage = ({ locations }) => (
     <h2>Select a Location to Edit</h2>
 
     <LinksWrapper>
-      {locations.map(location => (
-        <StyledLink key={location.dbId} to={`/edit/${location.dbId}`}>
+      {locations.map(location => console.log('location', location) || (
+        <StyledLink key={location.dbId} to={`/edit/${location.city}/${location.dbId}`}>
           <Card cover={<img style={{ minHeight: '200px' }} alt={location.name} src={location.imgRef} />}>
             {location.name}
           </Card>

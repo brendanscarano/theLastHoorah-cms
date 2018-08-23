@@ -15,6 +15,16 @@ export default gql`
       photos
       types
       website
+      reviews {
+        aggregateRating
+        googleRating
+        yelpRating
+        yelpNumberOfReviews
+        yelpUrl
+        tripAdvisorRating
+        tripAdvisorNumberOfReviews
+        tripAdvisorUrl
+      }
     }
   }
 `;

@@ -5,21 +5,21 @@ function to(promise) {
     .catch(err => [err]);
 }
 
-export const fetchData = async id => to(firebase
+export const fetchData = async (cityId, id) => to(firebase
   .firestore()
-  .collection('nyc')
+  .collection(cityId)
   .doc('locations')
   .collection('data')
   .doc(id)
   .get());
 
-export const updateData = (id, values) => {
+export const updateData = (cityId, id, values) => {
   const {
     name, description, formattedAddress, imgRef, latitude, longitude, phoneNumber, website, filters, reviews,
   } = values;
   return firebase
     .firestore()
-    .collection('nyc')
+    .collection(cityId)
     .doc('locations')
     .collection('data')
     .doc(id)
