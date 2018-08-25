@@ -11,6 +11,7 @@ import NewLocation from './layouts/NewLocation';
 import Locations from './layouts/Locations';
 import Cities from './layouts/Cities';
 import Edit from './layouts/Edit';
+import Test from './layouts/Test';
 import store from './redux/store';
 import WithNavBarLayout from './layouts/WithNavBar';
 
@@ -30,6 +31,7 @@ ReactDOM.render(
             <Route path="/cities" component={Cities} />
             <Route path="/locations/:id" component={Locations} />
             <Route path="/edit/:cityId/:id" component={Edit} />
+            <Route path="/test-page/:id" component={Test} />
             <Route path="/" component={NewLocation} />
           </Switch>
         </WithNavBarLayout>
