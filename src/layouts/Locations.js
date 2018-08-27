@@ -24,13 +24,13 @@ const StyledLink = styled(Link)`
     /* flex: 1 1 300px; */
 `;
 
-const LocationsPage = ({ locations }) => (
+const LocationsPage = ({ locations, match }) => (
   <div>
     <h2>Select a Location to Edit</h2>
 
     <LinksWrapper>
-      {locations.map(location => console.log('location', location) || (
-        <StyledLink key={location.dbId} to={`/edit/${location.city}/${location.dbId}`}>
+      {locations.map(location => (
+        <StyledLink key={location.dbId} to={`/edit/${match.params.id}/${location.dbId}`}>
           <Card cover={<img style={{ minHeight: '200px' }} alt={location.name} src={location.imgRef} />}>
             {location.name}
           </Card>

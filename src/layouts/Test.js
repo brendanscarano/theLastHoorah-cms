@@ -25,7 +25,7 @@ const TestLayout = ({ locations }) => (
         <Button
           onClick={async () => {
             console.log('locations', locations);
-            const testArray = locations.slice(0, 5);
+            const testArray = locations.slice(0, 4);
             console.log('testArray', testArray);
 
             const fetchAllReviews = testArray.map(async (location) => {

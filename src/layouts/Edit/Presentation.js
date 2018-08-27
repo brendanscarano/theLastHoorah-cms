@@ -19,7 +19,7 @@ const StyledFlexRow = styled(FlexRow)`
 
 const Presentation = ({
   locationId, isLoading, location, handleSubmit, selectedFilters, change, showModal,
-}) => console.log('location', location) || (
+}) => (
   <ApolloConsumer>
     {client => (
       <Container>
