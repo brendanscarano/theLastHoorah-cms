@@ -1,6 +1,7 @@
 
 export { default as Filter } from './Filter';
 export { default as Filters } from './Filters';
+export { default as FlexColumn } from './FlexColumn';
 export { default as FlexRow } from './FlexRow';
 export { default as InputField } from './Form/InputField';
 export { default as LocationForm } from './LocationForm';

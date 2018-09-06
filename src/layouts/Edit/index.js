@@ -37,7 +37,8 @@ const enhance = compose(
     handleSubmit: ({ formValues, match }) => async (e) => {
       const { cityId, id } = match.params;
       e.preventDefault();
-      await updateData(cityId, id, formValues);
+      const response = await updateData(cityId, id, formValues);
+      console.log('response', response);
     },
   }),
   reduxForm({

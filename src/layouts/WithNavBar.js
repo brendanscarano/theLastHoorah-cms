@@ -24,7 +24,7 @@ const FlexHeader = styled(Header)`
 `;
 
 const WithNavBarLayout = ({ children }) => (
-  <Layout className="layout">
+  <Layout className="layout" style={{ minWidth: '1200px' }}>
     <FlexHeader theme="light">
       <Title className="logo">
         <Link to="/">
