@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {
   compose, withState, lifecycle, withHandlers,
 } from 'recompact';
+import { Modal } from 'antd';
 import { reduxForm, change } from 'redux-form';
 import { connect } from 'react-redux';
 import { loadData } from '../../redux/location';
@@ -34,11 +35,52 @@ const enhance = compose(
     },
   }),
   withHandlers({
-    handleSubmit: ({ formValues, match }) => async (e) => {
+    fireSuccessModal: ({ location, history, match }) => () => {
+      Modal.success({
+        title: 'Success',
+        content: (
+          <div>
+            <p>{location.name} was updated!</p>
+            <p>Check it out on {' '}
+              <a
+                href={`https://the-lash-hoorah.firebaseapp.com/city/${location.city}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                The Last Hoorah: {match.params.cityId}
+              </a>
+            </p>
+          </div>
+        ),
+        onOk() {
+          history.push(`/locations/${match.params.cityId}`);
+        },
+      });
+    },
+    fireErrorModal: () => () => {
+      Modal.error({
+        title: 'Error',
+        content: 'Something went wrong',
+        onOk() { console.log('closing modal...'); },
+      });
+    },
+  }),
+  withHandlers({
+    handleSubmit: ({
+      formValues,
+      match,
+      fireSuccessModal,
+      fireErrorModal,
+    }) => async (e) => {
       const { cityId, id } = match.params;
       e.preventDefault();
       const response = await updateData(cityId, id, formValues);
-      console.log('response', response);
+
+      if (response.msg === 'Success') {
+        fireSuccessModal();
+      } else {
+        fireErrorModal();
+      }
     },
   }),
   reduxForm({
